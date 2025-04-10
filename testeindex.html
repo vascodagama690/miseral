@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários Cadastrados</title>
+    <!-- Link para o Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ+L5hJfnxZsU2diWqbp9f+39L1z2p2a5F5f5A5f5e5u5u5T5r5E5P5Xx" crossorigin="anonymous">
+    <style>
+        body {
+            background: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333; /* Cor de texto escuro para contraste */
+            padding-top: 20px;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2a3d66;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 2.5rem;
+        }
+
+        .table-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2a3d66;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+
+        tr:hover {
+            background-color: #e9ecef;
+        }
+
+        .table th, .table td {
+            border-radius: 8px;
+        }
+
+        .table-bordered td, .table-bordered th {
+            border: 1px solid #ddd;
+        }
+
+        .btn-custom {
+            background-color: #2a3d66;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 12px 24px;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-custom:hover {
+            background-color: #1a2b49;
+            cursor: pointer;
+        }
+
+        /* Adicionando um efeito para a tabela */
+        .table-container {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2rem;
+            }
+
+            .btn-custom {
+                width: 100%;
+            }
+
+            table {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Usuários Cadastrados</h2>
+        <div class="table-container">
+            <table class="table table-striped table-bordered" id="tabela-usuarios">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>CPF</th>
+                        <th>Data Nascimento</th>
+                        <th>CEP</th>
+                        <th>Logradouro</th>
+                        <th>Número</th>
+                        <th>Bairro</th>
+                        <th>Cidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dados dos usuários serão inseridos aqui -->
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-custom" id="reloadBtn">Atualizar Tabela</button>
+    </div>
+
+    <script>
+        async function carregarUsuarios() {
+            try {
+                const resposta = await fetch('https://inforpiaui.com.br/aula/listar_usuarios.php');
+                const usuarios = await resposta.json();
+
+                const tbody = document.querySelector('#tabela-usuarios tbody');
+                tbody.innerHTML = ''; // Limpa antes de carregar novos dados
+
+                usuarios.forEach(usuario => {
+                    const linha = document.createElement('tr');
+                    linha.innerHTML = `
+                        <td>${usuario.id}</td>
+                        <td>${usuario.nome}</td>
+                        <td>${usuario.email}</td>
+                        <td>${usuario.cpf}</td>
+                        <td>${usuario.nascimento}</td>
+                        <td>${usuario.cep}</td>
+                        <td>${usuario.logradouro}</td>
+                        <td>${usuario.numero}</td>
+                        <td>${usuario.bairro}</td>
+                        <td>${usuario.cidade}</td>
+                    `;
+                    tbody.appendChild(linha);
+                });
+            } catch (erro) {
+                console.error('Erro ao carregar usuários:', erro);
+            }
+        }
+
+        // Carrega os dados ao abrir a página
+        carregarUsuarios();
+
+        // Função de atualizar a tabela
+        document.getElementById("reloadBtn").addEventListener("click", carregarUsuarios);
+    </script>
+
+    <!-- Link para o Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fq0OJeNpa95y6nLfpgCzjlbqN6P47n68mn3nFpc12U6aFPpOtA+qdoYXpm/d7Xq3" crossorigin="anonymous"></script>
+</body>
+
+</html>
