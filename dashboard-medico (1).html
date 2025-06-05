@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Médico - Sistema de Clínica Médica</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <span class="logo-text">MedClinic</span>
+                </a>
+                <button class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-menu">
+                <div class="menu-label">PRINCIPAL</div>
+                <a href="dashboard-medico.html" class="menu-item active">
+                    <i class="fas fa-tachometer-alt menu-icon"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                
+                <div class="menu-label">ATENDIMENTO</div>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-calendar-alt menu-icon"></i>
+                    <span class="menu-text">Minha Agenda</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-clipboard-list menu-icon"></i>
+                    <span class="menu-text">Atendimentos</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-user-injured menu-icon"></i>
+                    <span class="menu-text">Pacientes</span>
+                </a>
+                
+                <div class="menu-label">PRONTUÁRIO</div>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-file-medical menu-icon"></i>
+                    <span class="menu-text">Prontuários</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-pills menu-icon"></i>
+                    <span class="menu-text">Prescrições</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-vial menu-icon"></i>
+                    <span class="menu-text">Exames</span>
+                </a>
+                
+                <div class="menu-label">CONFIGURAÇÕES</div>
+                <a href="#" class="menu-item">
+                    <i class="fas fa-cog menu-icon"></i>
+                    <span class="menu-text">Meu Perfil</span>
+                </a>
+                
+                <div class="menu-label">CONTA</div>
+                <a href="login.html" class="menu-item">
+                    <i class="fas fa-sign-out-alt menu-icon"></i>
+                    <span class="menu-text">Sair</span>
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Conteúdo principal -->
+        <div class="content">
+            <header class="header">
+                <div class="header-title">
+                    <h1>Dashboard Médico</h1>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">Dr. Carlos Santos</div>
+                            <div class="user-role">Clínico Geral</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Consultas Hoje</div>
+                            <div class="stat-icon primary">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-description">
+                            3 em espera, 2 em atendimento
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Pacientes Atendidos</div>
+                            <div class="stat-icon success">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">7</div>
+                        <div class="stat-description">
+                            <i class="fas fa-arrow-up"></i> 2 a mais que ontem
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Exames Pendentes</div>
+                            <div class="stat-icon warning">
+                                <i class="fas fa-vial"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-description">
+                            3 resultados recebidos hoje
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Próxima Consulta</div>
+                            <div class="stat-icon danger">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value">10:30</div>
+                        <div class="stat-description">
+                            Pedro Souza - Retorno
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h2 class="card-title">Próximos Atendimentos</h2>
+                        <div>
+                            <button class="btn btn-outline btn-sm">
+                                <i class="fas fa-filter"></i> Filtrar
+                            </button>
+                            <button class="btn btn-primary btn-sm">
+                                <i class="fas fa-print"></i> Imprimir
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Horário</th>
+                                        <th>Paciente</th>
+                                        <th>Tipo</th>
+                                        <th>Convênio</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>10:30</td>
+                                        <td>Pedro Souza</td>
+                                        <td>Retorno</td>
+                                        <td>Unimed</td>
+                                        <td><span class="badge badge-warning">Em Espera</span></td>
+                                        <td>
+                                            <button class="btn btn-primary btn-sm">
+                                                <i class="fas fa-stethoscope"></i> Atender
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:00</td>
+                                        <td>Ana Costa</td>
+                                        <td>Primeira Consulta</td>
+                                        <td>SulAmérica</td>
+                                        <td><span class="badge badge-primary">Agendada</span></td>
+                                        <td>
+                                            <button class="btn btn-outline btn-sm">
+                                                <i class="fas fa-eye"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>11:30</td>
+                                        <td>João Oliveira</td>
+                                        <td>Retorno</td>
+                                        <td>Particular</td>
+                                        <td><span class="badge badge-primary">Agendada</span></td>
+                                        <td>
+                                            <button class="btn btn-outline btn-sm">
+                                                <i class="fas fa-eye"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>14:00</td>
+                                        <td>Maria Silva</td>
+                                        <td>Primeira Consulta</td>
+                                        <td>Amil</td>
+                                        <td><span class="badge badge-primary">Agendada</span></td>
+                                        <td>
+                                            <button class="btn btn-outline btn-sm">
+                                                <i class="fas fa-eye"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>14:30</td>
+                                        <td>Luiza Pereira</td>
+                                        <td>Retorno</td>
+                                        <td>Unimed</td>
+                                        <td><span class="badge badge-primary">Agendada</span></td>
+                                        <td>
+                                            <button class="btn btn-outline btn-sm">
+                                                <i class="fas fa-eye"></i> Ver
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Resultados de Exames Recentes</h2>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Maria Silva</strong> - Hemograma Completo
+                                            <div class="text-muted">Recebido em: 02/06/2025</div>
+                                        </div>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>João Oliveira</strong> - Raio-X Tórax
+                                            <div class="text-muted">Recebido em: 01/06/2025</div>
+                                        </div>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Pedro Souza</strong> - Glicemia em Jejum
+                                            <div class="text-muted">Recebido em: 01/06/2025</div>
+                                        </div>
+                                        <button class="btn btn-outline btn-sm">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-outline">Ver Todos</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Meus Horários da Semana</h2>
+                            </div>
+                            <div class="card-body">
+                                <div style="height: 300px; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                                    <p>Calendário Semanal</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-outline">Gerenciar Agenda</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Toggle sidebar
+        document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('collapsed');
+            document.querySelector('.content').classList.toggle('expanded');
+        });
+    </script>
+</body>
+</html>

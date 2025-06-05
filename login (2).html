@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Clínica Médica</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-sidebar">
+            <div class="login-logo">
+                <i class="fas fa-heartbeat"></i> MedClinic
+            </div>
+            <div class="login-description">
+                Sistema avançado de gerenciamento para clínicas médicas
+            </div>
+            
+            <div class="login-features">
+                <div class="login-feature">
+                    <div class="login-feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="login-feature-text">
+                        Agendamento inteligente de consultas
+                    </div>
+                </div>
+                
+                <div class="login-feature">
+                    <div class="login-feature-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <div class="login-feature-text">
+                        Prontuário eletrônico completo
+                    </div>
+                </div>
+                
+                <div class="login-feature">
+                    <div class="login-feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="login-feature-text">
+                        Relatórios gerenciais detalhados
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-content">
+            <div class="login-form">
+                <h2 class="mb-4">Acesso ao Sistema</h2>
+                
+                <form action="#" method="get" id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label" for="username">Usuário</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu usuário" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="password">Senha</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="userType">Tipo de Acesso</label>
+                        <select class="form-select" id="userType" name="userType">
+                            <option value="paciente">Paciente</option>
+                            <option value="medico">Médico</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group d-flex justify-content-between align-items-center">
+                        <div>
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Lembrar-me</label>
+                        </div>
+                        <a href="#">Esqueceu a senha?</a>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const userType = document.getElementById("userType").value;
+            
+            // Redirecionar para o dashboard apropriado com base no tipo de usuário
+            if (userType === "paciente") {
+                window.location.href = "dashboard-paciente.html";
+            } else if (userType === "medico") {
+                window.location.href = "dashboard-medico.html";
+            }
+        });
+    </script>
+</body>
+</html>
+
+
